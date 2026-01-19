@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 
+import { toast } from "react-toastify";
+
 const Dashboard = () => {
   const { session, signOut } = UserAuth();
   const navigate = useNavigate();
@@ -12,6 +14,7 @@ const Dashboard = () => {
     try {
       await signOut();
       navigate("/");
+      toast.success("Logout successful!");
     } catch (err) {
       setError("An unexpected error occurred."); // Catch unexpected errors
     }

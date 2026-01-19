@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
+import { toast } from "react-toastify";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -23,7 +24,7 @@ const Signin = () => {
         setError("");
       }, 3000); // 3000 milliseconds = 3 seconds
     } else {
-      // Redirect or perform any necessary actions after successful sign-in
+      toast.success("Login successful!");
       navigate("/dashboard");
     }
 

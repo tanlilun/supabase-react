@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 
+import { toast } from "react-toastify";
+
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,6 +22,7 @@ const Signup = () => {
 
       if (result.success) {
         navigate("/dashboard"); // Navigate to dashboard on success
+        toast.success("Login successful!");
       } else {
         setError(result.error.message); // Show error message on failure
       }
